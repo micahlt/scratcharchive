@@ -1,0 +1,99 @@
+<template>
+  <div class="header">
+    <h1>Preserving Scratch history since 2022</h1>
+    <p>
+      The Scratch Archive has a goal of archiving as many projects as possible
+      so that no part of the platform's history is lost.
+    </p>
+  </div>
+  <SearchBar @update="updateQuery" />
+  <ProjectList :projects="compList" />
+  <a href="#" class="more" @click.prevent="loadMore">Load more</a>
+</template>
+
+<script>
+export default {
+  name: "Home",
+  data() {
+    return {
+      list: [],
+      query: "",
+      totalProjects: 1000,
+      lastLoaded: 0,
+    };
+  },
+  methods: {
+    updateQuery(q) {
+      this.query = q;
+      this.$router.push(`?q=${q}`);
+    },
+    loadProjects(r, l) {
+      if (!r) r = 0;
+      if (!l) l = Infinity;
+      fetch(
+        encodeURI(
+          `https://archive.org/download/${sources[r].parent}/${sources[r].loc}/`
+        )
+      ).then((res) => {
+        if (res.ok) {
+          let i;
+          for (i = sources[r].start; i < sources[r].end && i < l; i++) {
+            this.list.push({
+              id: i,
+              name: "Unnamed project",
+              source: r,
+            });
+          }
+          this.lastLoaded = i;
+        } else {
+          alert("Data fetch failed.");
+        }
+      });
+    },
+  },
+  computed: {
+    compList() {
+      return this.list.filter((item) => {
+        if (String(item.id).includes(this.query)) return true;
+        if (item.name.toLowerCase().includes(this.query.toLowerCase()))
+          return true;
+        return false;
+      });
+    },
+  },
+  mounted() {
+    this.loadProjects(0, 55);
+  },
+};
+</script>
+
+<style scoped>
+.header {
+  width: calc(100% - 80px);
+  background: var(--acc-dark);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 40px;
+}
+
+.header p {
+  margin-top: 0.75rem;
+}
+
+.more {
+  display: block;
+  text-decoration: none;
+  padding: 12px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  background: var(--txt-1);
+  color: var(--bg-1);
+  width: max-content;
+  margin: auto;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+</style>
