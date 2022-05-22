@@ -1,32 +1,23 @@
-# vite-vue3-simple-starter
+# Scratch Archive
 
-A simple, unopinionated Vite/Vue 3 starter template featuring:
-
-- 💛 Vanilla JavaScript (no TS)
-- 🏗️ Vue 3 with Composition API
-- ⚡ Lightning-fast Vite bundling
-- ✨ Automatically imported components
-- 🗺️ Vue Router with seperate routerfile
-- 🦥 Lazy-loaded routes
-- ⌛ Web History API
-- 🗑️ No boilerplate code to delete
-- 🔎 Navbar component by default
-- 🏠 Home and 404 pages
-- ⏮️ CSS reset
-
-## Installation
-```bash
-npx degit micahlt/vite-vue3-simple-starter your-project-name
-```
+A web interface for accessing the [sbarchive](https://github.com/micahlt/sbarchive) project, written in Vue 3 and bundled with Vite.  
 
 ## Development
 
+### Install dependencies
+
 ```bash
 npm i
+```
+
+### Live server
+
+```bash
 npm run dev
 ```
 
-## Production
+### Build
+
 ```bash
 npm run build
 ```
