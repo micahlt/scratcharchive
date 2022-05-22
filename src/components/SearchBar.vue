@@ -12,15 +12,13 @@
 export default {
   name: "SearchBar",
   emits: ["update"],
+  props: {
+    count: Number,
+  },
   data() {
     return {
       query: "",
     };
-  },
-  computed: {
-    count() {
-      return sources[sources.length - 1].end;
-    },
   },
 };
 </script>

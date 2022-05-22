@@ -6,7 +6,7 @@
       so that no part of the platform's history is lost.
     </p>
   </div>
-  <SearchBar @update="updateQuery" />
+  <SearchBar @update="updateQuery" :count="count" />
   <ProjectList :projects="compList" />
   <a href="#" class="more" @click.prevent="loadMore">Load more</a>
 </template>
@@ -45,7 +45,6 @@ export default {
           ) {
             this.list.push({
               id: i,
-              name: "Unnamed project",
               source: r,
             });
           }
@@ -62,12 +61,25 @@ export default {
   },
   computed: {
     compList() {
+      if (this.query > this.lastLoaded && this.query < this.count) {
+        const sourceIndex = sources.findIndex((s) => {
+          return this.query > s.start && this.query < s.end;
+        });
+        if (sourceIndex != -1) {
+          this.list.push({
+            id: this.query,
+            source: sourceIndex,
+          });
+        }
+        this.list = [...new Set(this.list)];
+      }
       return this.list.filter((item) => {
         if (String(item.id).includes(this.query)) return true;
-        if (item.name.toLowerCase().includes(this.query.toLowerCase()))
-          return true;
         return false;
       });
+    },
+    count() {
+      return sources[sources.length - 1].end;
     },
   },
   mounted() {

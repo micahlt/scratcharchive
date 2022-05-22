@@ -3,7 +3,6 @@
     <ProjectCard
       v-for="p in projects"
       :key="p.id"
-      :name="p.name"
       :id="p.id"
       :source="p.source"
     />
