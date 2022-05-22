@@ -2,7 +2,7 @@
   <input
     type="text"
     name="Search"
-    placeholder="Filter projects by ID..."
+    :placeholder="`Search ${count} projects by ID...`"
     v-model="query"
     @keyup="$emit('update', query)"
   />
@@ -16,6 +16,11 @@ export default {
     return {
       query: "",
     };
+  },
+  computed: {
+    count() {
+      return sources[sources.length - 1].end;
+    },
   },
 };
 </script>

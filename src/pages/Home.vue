@@ -20,6 +20,7 @@ export default {
       query: "",
       totalProjects: 1000,
       lastLoaded: 0,
+      bucket: 0,
     };
   },
   methods: {
@@ -37,7 +38,11 @@ export default {
       ).then((res) => {
         if (res.ok) {
           let i;
-          for (i = sources[r].start; i < sources[r].end && i < l; i++) {
+          for (
+            i = this.lastLoaded + 1;
+            i < sources[r].end && i < this.lastLoaded + l;
+            i++
+          ) {
             this.list.push({
               id: i,
               name: "Unnamed project",
@@ -45,10 +50,14 @@ export default {
             });
           }
           this.lastLoaded = i;
+          if (i >= sources[r].end) this.bucket++;
         } else {
           alert("Data fetch failed.");
         }
       });
+    },
+    loadMore() {
+      this.loadProjects(this.bucket, 200);
     },
   },
   computed: {
@@ -95,5 +104,9 @@ export default {
   margin-top: 0.25rem;
   margin-bottom: 1rem;
   border-radius: 5px;
+}
+
+.count {
+  opacity: 0.5;
 }
 </style>
