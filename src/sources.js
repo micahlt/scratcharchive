@@ -17,9 +17,15 @@ window.sources = [
     start: 20001,
     end: 30000,
   },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [30001-40000].zip",
+    start: 30001,
+    end: 40000,
+  },
 ];
 
-window.lastProject = 30000;
+window.count = window.sources[window.sources.length - 1].end;
 
 window.shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
