@@ -16,6 +16,10 @@ const routes = [
     path: "/404",
     component: () => import("../pages/404.vue"),
   },
+  {
+    path: "/about",
+    component: () => import("../pages/About.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHashHistory(),

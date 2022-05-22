@@ -6,7 +6,7 @@
       so that no part of the platform's history is lost.
     </p>
   </div>
-  <SearchBar @update="updateQuery" :count="count" />
+  <SearchBar @update="updateQuery" />
   <ProjectList :projects="compList" />
   <a href="#" class="more" @click.prevent="loadMore">Load more</a>
 </template>
@@ -21,6 +21,7 @@ export default {
       totalProjects: 1000,
       lastLoaded: 0,
       bucket: 0,
+      count: window.count,
     };
   },
   methods: {
@@ -77,9 +78,6 @@ export default {
         if (String(item.id).includes(this.query)) return true;
         return false;
       });
-    },
-    count() {
-      return sources[sources.length - 1].end;
     },
   },
   mounted() {

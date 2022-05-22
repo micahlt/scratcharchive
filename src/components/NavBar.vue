@@ -8,7 +8,7 @@ export default {
   <nav>
     <h1 title="Scratch Archive" role="link" @click="$router.push('/')">SA</h1>
     <router-link to="/about" title="About the archive">About</router-link>
-    <router-link to="/random" title="Find a random project">Random</router-link>
+    <router-link to="/404" title="Find a random project">Random</router-link>
     <div class="nav-spacer"></div>
     <a
       href="https://archive.org/download/scratch-projects"
