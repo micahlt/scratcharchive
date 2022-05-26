@@ -2,7 +2,7 @@
   <input
     type="text"
     name="Search"
-    :placeholder="`Search ${count} projects by ID...`"
+    :placeholder="`Search ${count.toLocaleString("en-US")} projects by ID...`"
     v-model="query"
     @keyup="$emit('update', query)"
   />
