@@ -11,11 +11,11 @@ export default {
     <router-link to="/404" title="Find a random project">Random</router-link>
     <div class="nav-spacer"></div>
     <a
-      href="https://archive.org/download/scratch-projects"
+      href="https://github.com/micahlt/sbarchive/blob/master/README.md#archives"
       class="button secondary"
       target="_blank"
-      title="View on Archive.org"
-      >Archive.org</a
+      title="View list of Archive.org pages"
+      >Mirrors</a
     >
     <a
       href="https://github.com/micahlt/sbarchive#readme"
