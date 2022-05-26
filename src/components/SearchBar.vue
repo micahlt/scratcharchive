@@ -2,7 +2,7 @@
   <input
     type="text"
     name="Search"
-    :placeholder="`Search ${count.toLocaleString("en-US")} projects by ID...`"
+    :placeholder="`Search ${count} projects by ID...`"
     v-model="query"
     @keyup="$emit('update', query)"
   />
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       query: "",
-      count: window.count,
+      count: Number(window.count).toLocaleString("en-US"),
     };
   },
 };
