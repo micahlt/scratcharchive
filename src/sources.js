@@ -42,10 +42,16 @@ window.sources = [
     end: 70000,
   },
   {
-    parent: "70000-80000",
-    loc: "70000-80000.zip",
+    parent: "scratch-projects",
+    loc: "Projects [70001-80000].zip",
     start: 70001,
-    end: 79999,
+    end: 80000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [80001-90000].zip",
+    start: 80001,
+    end: 90000,
   },
 ];
 
