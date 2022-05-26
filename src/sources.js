@@ -53,6 +53,12 @@ window.sources = [
     start: 80001,
     end: 90000,
   },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [90001-100000].zip",
+    start: 90001,
+    end: 100000,
+  },
 ];
 
 window.count = window.sources[window.sources.length - 1].end;
