@@ -59,6 +59,66 @@ window.sources = [
     start: 90001,
     end: 100000,
   },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [100001-110000].zip",
+    start: 100001,
+    end: 110000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [110001-120000].zip",
+    start: 110001,
+    end: 120000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [120001-130000].zip",
+    start: 120001,
+    end: 130000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [130001-140000].zip",
+    start: 130001,
+    end: 140000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [140001-150000].zip",
+    start: 140001,
+    end: 150000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [150001-160000].zip",
+    start: 150001,
+    end: 160000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [160001-170000].zip",
+    start: 160001,
+    end: 170000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [170001-180000].zip",
+    start: 170001,
+    end: 180000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [180001-190000].zip",
+    start: 180001,
+    end: 190000,
+  },
+  {
+    parent: "scratch-projects",
+    loc: "Projects [190001-200000].zip",
+    start: 190001,
+    end: 200000,
+  }
 ];
 
 window.count = window.sources[window.sources.length - 1].end;
